@@ -20,6 +20,24 @@ class testDeviceOnboarding(unittest.TestCase):
     def testWarehouse(self):
         self.assertEqual(newdevice.get_warehouse_number(),1)
         self.assertEqual(newdevice.get_section_number(),2)
+        self.assertEqual(newdevice.get_row_number(),3)
+        self.assertEqual(newdevice.get_shelf_number(),4)
+        self.assertEqual(newdevice.get_segment_number(),5)
+        self.assertEqual(newdevice.get_segment_section(),'BACK RIGHT')
+
+    def testCheckStateBySerialID(self):
+        mydevice = device(123,1,1,False,321)
+        mydatabase = mockdatabase()
+        mydatabase.append_device(mydevice)
+        self.assertEqual(database.get_device_by_serialID(123),mydevice)
+
+    def testCheckStateByIMEI(self):
+        mydevice = device(123,1,1,False,321)
+        mydatabase = mockdatabase()
+        mydatabase.append_device(mydevice)
+        self.assertEqual(database.get_device_by_IMEI(321),mydevice)
+
+
 
 if __name__ == "__main__":
     unittest.main()

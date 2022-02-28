@@ -49,4 +49,4 @@ class device:
     
 newdevice = device(1,1,1,False,1)
 newdevice.set_sim_info(1,1)
-newdevice.set_warehouse_info(1,2,3,4,5,6)
+newdevice.set_warehouse_info(1,2,3,4,5,'BACK RIGHT')
