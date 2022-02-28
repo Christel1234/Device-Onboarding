@@ -23,6 +23,7 @@ class testDeviceOnboarding(unittest.TestCase):
         self.assertEqual(newdevice.get_row_number(),3)
         self.assertEqual(newdevice.get_shelf_number(),4)
         self.assertEqual(newdevice.get_segment_number(),5)
+
         self.assertEqual(newdevice.get_segment_section(),'BACK RIGHT')
 
     def testCheckStateBySerialID(self):
