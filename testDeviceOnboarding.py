@@ -26,19 +26,17 @@ class testDeviceOnboarding(unittest.TestCase):
 
         self.assertEqual(newdevice.get_segment_section(),'BACK RIGHT')
 
-    def testCheckStateBySerialID(self):
+    def testFindBySerialID(self):
         mydevice = device(123,1,1,False,321)
         mydatabase = mockdatabase()
         mydatabase.append_device(mydevice)
         self.assertEqual(database.get_device_by_serialID(123),mydevice)
 
-    def testCheckStateByIMEI(self):
+    def testFindByIMEI(self):
         mydevice = device(123,1,1,False,321)
         mydatabase = mockdatabase()
         mydatabase.append_device(mydevice)
         self.assertEqual(database.get_device_by_IMEI(321),mydevice)
-
-
 
 if __name__ == "__main__":
     unittest.main()
