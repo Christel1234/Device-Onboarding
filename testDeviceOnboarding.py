@@ -17,5 +17,9 @@ class testDeviceOnboarding(unittest.TestCase):
     def testAddedDeviceToDatabase(self):
         self.assertEqual(database.get_length(),1)
 
+    def testWarehouse(self):
+        self.assertEqual(newdevice.get_warehouse_number(),1)
+        self.assertEqual(newdevice.get_section_number(),2)
+
 if __name__ == "__main__":
     unittest.main()
