@@ -20,6 +20,11 @@ class testDeviceOnboarding(unittest.TestCase):
     def testWarehouse(self):
         self.assertEqual(newdevice.get_warehouse_number(),1)
         self.assertEqual(newdevice.get_section_number(),2)
+        self.assertEqual(newdevice.get_row_number(),3)
+        self.assertEqual(newdevice.get_shelf_number(),4)
+        self.assertEqual(newdevice.get_segment_number(),5)
+        self.assertEqual(newdevice.get_segment_section(),6)
+
 
 if __name__ == "__main__":
     unittest.main()
