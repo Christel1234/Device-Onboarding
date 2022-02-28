@@ -5,4 +5,4 @@ class warehouse:
         self.row_number = row_number
         self.shelf_number = shelf_number
         self.segment_number = segment_number
-        self.segment_section = segment_section
+        self.segment_section = segment_section 
