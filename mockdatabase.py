@@ -1,13 +1,15 @@
+import numbers
 from device import *
 
 class mockdatabase:
     def __init__(self):
-        self.DeviceList = []
+        self.deviceList = []
 
-    def newDevice(self,serialID,boxID,crateID,isDamaged,IMEI):
-        self.DeviceList.append(device(serialID,boxID,crateID,isDamaged,IMEI)) 
+    def get_length(self):
+        return len(self.deviceList)
+
+    def append_device(self,mydevice):
+        self.deviceList.append(mydevice) 
 
 database = mockdatabase()
-database.newDevice(1,1,1,False,1)
-
-       
+database.append_device(newdevice)

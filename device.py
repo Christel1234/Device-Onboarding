@@ -7,7 +7,6 @@ class device:
         self.crateID = crateID
         self.isDamaged = isDamaged
         self.IMEI = IMEI
-
     def get_serialID(self):
         return self.serialID
     def get_boxID(self):
@@ -19,8 +18,13 @@ class device:
     def get_IMEI(self):
         return self.IMEI
     
-    def setSIMInfo(self,SNN,IMSI):
-        self.siminfo = sim(SNN,IMSI)
+    def set_sim_info(self,SNN,IMSI):
+        self.SNN = SNN
+        self.IMSI = IMSI
+    def get_sim_snn(self):
+        return self.SNN
+    def get_sim_imsi(self):
+        return self.IMSI
     
 newdevice = device(1,1,1,False,1)
-newdevice.setSIMInfo(1,1)
+newdevice.set_sim_info(1,1)
