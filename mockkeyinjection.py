@@ -5,8 +5,8 @@ class Ikeyinjection:
         pass
 
 class keyinjection(Ikeyinjection):
-    def __init__(self, key):
-        self.key = key
+    def __init__(self, state):
+        self.state = state
 
     def injectkey(self, key):
         if self.state == True:
