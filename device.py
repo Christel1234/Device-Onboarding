@@ -4,14 +4,16 @@ from mockkeyinjection import *
 from devicestate import *
 
 class device:
-    def __init__(self, serialID, isDamaged, flashed, keyinjected, needrepacking, IMEI):
+    def __init__(self, serialID, packageID, isDamaged, flashed, keyinjected, sendrepacking, IMEI):
         self.serialID = serialID
+        self.packageID = packageID
         self.isDamaged = isDamaged
-        self.flashed = flashed
+        self.flashed = flashed 
         self.keyinjected = keyinjected
-        self.needrepacking = needrepacking 
+        self.sendrepacking = sendrepacking 
         self.IMEI = IMEI
-
+        
+#update state
     def get_serialID(self):
         return self.serialID
 
@@ -25,8 +27,8 @@ class device:
     def get_crate(self):
         return self.crate
 
-
-    def set_isDamaged(self):#maybe should change 
+##figure out this one - maybe create method
+    def set_isDamaged(self):
         if self.isDamaged:
             self.set_device_state("damage_recorded")
             self.flashed = None
@@ -36,13 +38,17 @@ class device:
     def get_isDamaged(self):
         return self.isDamaged
 
+
+##need flash and inject method and update state
     def get_flashed(self):
         return self.flashed
 
     def get_keyinjected(self):
         return self.keyinjected
 
-    def get_needrepacking(self):
+
+#need to update state
+    def get_sendrepacking(self):
         return self.needrepacking
 
     def set_IMEI(self,IMEI):
@@ -50,12 +56,13 @@ class device:
         self.state = devicestate.imei_recorded
     def get_IMEI(self):
         return self.IMEI
-##
+##is this necessarry?
     def set_device_state(self,state): 
         self.devicestate = state
     def get_device_state(self):
         return self.devicestate
-##
+
+#update state to assign simcard
     def set_sim_info(self,SNN,IMSI):
         self.SNN = SNN
         self.IMSI = IMSI
@@ -64,7 +71,14 @@ class device:
     def get_sim_imsi(self):
         return self.IMSI
 
-    def set_warehouse_info(self,warehouse_number,section_number,row_number,shelf_number,segment_number,segment_section):
+#check this
+    #def legal(self, wanted_state):
+        #check if next state update is correct
+
+"""needs changing
+
+    def set_warehouse_info(self,warehouse):
+
         self.warehouse_number = warehouse_number
         self.section_number = section_number
         self.row_number = row_number
@@ -84,11 +98,7 @@ class device:
     def get_segment_section(self):
         return self.segment_section
 """
-    def updatekeys(self, key):
-        self.keyinjected = key
-    def updateflashed(self):
-        self.flashed = True
-"""
-newdevice = device(1,False,False,False,False,1)
-newdevice.set_sim_info(1,1)
-newdevice.set_warehouse_info(1,2,3,4,5,'BACK RIGHT')
+    
+#newdevice = device(1,False,False,False,False,1)
+#newdevice.set_sim_info(1,1)
+#newdevice.set_warehouse_info(1,2,3,4,5,'BACK RIGHT')
