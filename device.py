@@ -6,49 +6,56 @@ from devicestate import *
 class device:
     def __init__(self, serialID, isDamaged, flashed, keyinjected, needrepacking, IMEI):
         self.serialID = serialID
-       # self.packageID = packageID
         self.isDamaged = isDamaged
         self.flashed = flashed
         self.keyinjected = keyinjected
-        self.needrepacking = needrepacking #bool?
+        self.needrepacking = needrepacking 
         self.IMEI = IMEI
+
     def get_serialID(self):
         return self.serialID
+
     def set_packageID(self,box,crate):
         self.box = box
         self.crate = crate 
         self.state = devicestate.packageID_recorded
         return True
-    """
-    def get_boxID(self):
-        return self.boxID
-    def get_crateID(self):
-        return self.crateID
-    """
-    def get_isDammaged(self):
-        return self.isDamaged
-    def get_flashed(self):
-        return self.flashed
-    def get_keyinjected(self):
-        return self.keyinjected
-    def get_needrepacking(self):
-        return self.needrepacking
-    def get_IMEI(self):
-        return self.IMEI
+    def get_box(self):
+        return self.box
+    def get_crate(self):
+        return self.crate
 
-    def set_device_state(self,state): #number
-        self.devicestate = state
-    def get_device_state(self):
-        return self.devicestate
 
-    def set_isDamaged(self):
-        if self.isDamaged == True:
+    def set_isDamaged(self):#maybe should change 
+        if self.isDamaged:
             self.set_device_state("damage_recorded")
             self.flashed = None
             self.keyinjected = None
             self.needrepacking = None
             self.IMEI = None
+    def get_isDamaged(self):
+        return self.isDamaged
 
+    def get_flashed(self):
+        return self.flashed
+
+    def get_keyinjected(self):
+        return self.keyinjected
+
+    def get_needrepacking(self):
+        return self.needrepacking
+
+    def set_IMEI(self,IMEI):
+        self.IMEI = IMEI
+        self.state = devicestate.imei_recorded
+    def get_IMEI(self):
+        return self.IMEI
+##
+    def set_device_state(self,state): 
+        self.devicestate = state
+    def get_device_state(self):
+        return self.devicestate
+##
     def set_sim_info(self,SNN,IMSI):
         self.SNN = SNN
         self.IMSI = IMSI
@@ -76,17 +83,12 @@ class device:
         return self.segment_number
     def get_segment_section(self):
         return self.segment_section
-
+"""
     def updatekeys(self, key):
         self.keyinjected = key
     def updateflashed(self):
         self.flashed = True
-
-newdevice = device(1,1,1,False,False,False,False,1)
-
-#update keys
-#update flashed
-#newdevice = device(1,1,1,False,1)
-#newdevice.set_sim_info(1,1)
-#newdevice.set_warehouse_info(1,2,3,4,5,'BACK RIGHT')
-#mydevice = device(123,1,1,False,321)
+"""
+newdevice = device(1,False,False,False,False,1)
+newdevice.set_sim_info(1,1)
+newdevice.set_warehouse_info(1,2,3,4,5,'BACK RIGHT')
