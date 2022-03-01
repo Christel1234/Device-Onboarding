@@ -4,14 +4,12 @@ from errorhandler import FlashFaliureException
 class Iflashdevice:
     def flashdevice(self):
         pass
-    
 class flashdevice(Iflashdevice):
-    def __init__(self, device: device):
+    def __init__(self, device):
         self.device = device
-
     def flashdevice(self):
         try:
-            self.device.flashdevice()
+            self.flashdevice()
         except:
             raise FlashFaliureException
 
