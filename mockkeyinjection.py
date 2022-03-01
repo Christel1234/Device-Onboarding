@@ -1,4 +1,3 @@
-from device import *
 from errorhandler import InjectionFaliureException
 
 class Ikeyinjection:
@@ -10,8 +9,7 @@ class keyinjection(Ikeyinjection):
         self.key = key
 
     def injectkey(self, key):
-        try:
-            self.injectkey(key)
+        if self.state == True:
             return True
-        except:
+        else:
             raise InjectionFaliureException

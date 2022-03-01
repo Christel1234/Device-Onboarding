@@ -5,11 +5,11 @@ class Iflashdevice:
     def flashdevice(self):
         pass
 class flashdevice(Iflashdevice):
-    def __init__(self, device):
-        self.device = device
+    def __init__(self, state):
+        self.state = state 
     def flashdevice(self):
-        try:
-            self.flashdevice()
-        except:
+        if self.state >= 1: 
+            return True
+        else:
             raise FlashFaliureException
 

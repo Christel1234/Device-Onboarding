@@ -9,5 +9,5 @@ class devicestate(enum.Enum):
     simcard_assigned = 6
     device_flashed = 7
     keys_injected = 8
-    repacking = 9
-    warehouse = 10
+    repacking_sent = 9
+    warehouse_stored = 10
