@@ -22,7 +22,3 @@ class mockdatabase:
 
 database = mockdatabase()
 database.append_device(newdevice)
-"""
-mydatabase = mockdatabase()
-mydatabase.append_device(mydevice)
-"""
