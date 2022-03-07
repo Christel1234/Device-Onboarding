@@ -20,5 +20,7 @@ class mockdatabase:
             if device.get_IMEI == IMEI:
                 return currentdevice
 
+#def update_db(): can't get to work
+
 database = mockdatabase()
 database.append_device(newdevice)
